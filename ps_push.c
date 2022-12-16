@@ -18,6 +18,7 @@ void	ps_pa(t_node **stack_a, t_node **stack_b)
 	{
 		*stack_a = ps_push(stack_b, stack_a);
 		delete_node(stack_b, (*stack_b)->content);
+		write(1, "pa\n", 3);
 	}
 }
 
@@ -27,6 +28,7 @@ void	ps_pb(t_node **stack_a, t_node **stack_b)
 	{
 		*stack_b = ps_push(stack_a, stack_b);
 		delete_node(stack_a, (*stack_a)->content);
+		write(1, "pb\n", 3);
 	}
 }
 

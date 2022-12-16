@@ -12,7 +12,8 @@ SRC		:= \
 	ps_lists.c \
 	ps_push.c \
 	ps_swap.c \
-	ps_rotate.c 
+	ps_rotate.c \
+	ps_heapsort.c
 
 OBJ		:= $(SRC:.c=.o)
 
@@ -24,7 +25,6 @@ all:	$(NAME)
 
 $(NAME): $(OBJ)
 		$(MAKE) -C ./libft
-#		ar -crs $@ $^ ./libft/libft.a
 		$(CC) $^ ./libft/libft.a -o $(NAME)
 
 %.o: %.c

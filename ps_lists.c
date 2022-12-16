@@ -6,7 +6,7 @@
 /*   By: lvan-bus <lvan-bus@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/07 11:07:53 by lvan-bus      #+#    #+#                 */
-/*   Updated: 2022/12/15 18:30:14 by lvan-bus      ########   odam.nl         */
+/*   Updated: 2022/12/16 14:31:03 by lvan-bus      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ t_node	*create_list(t_node *stack, int new_content)
 	return (new);
 }
 
-t_node	*delete_node(t_node **head, int data)
+void	delete_node(t_node **head, int data)
 {
 	t_node	*temp;
 	t_node	*prev;
@@ -52,7 +52,7 @@ t_node	*delete_node(t_node **head, int data)
 	{
 		*head = temp->next;
 		free(temp);
-		return (NULL);
+		return ;
 	}
 	while (temp && temp->content != data)
 	{
@@ -60,10 +60,9 @@ t_node	*delete_node(t_node **head, int data)
 		temp = temp->next;
 	}
 	if (!temp)
-		return (NULL);
+		return ;
 	prev->next = temp->next;
 	free(temp);
-	return (prev);
 }
 
 void	print_list(t_node **head)
