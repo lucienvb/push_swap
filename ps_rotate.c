@@ -35,6 +35,7 @@ void	reverse_rotate(t_node **stack)
 	temp = second_last->next->content;
 	delete_node(&second_last, second_last->next->content);
 	add_front(stack, temp);
+	write(1, "rra\n", 4);
 }
 
 void	rrr(t_node **stack_a, t_node **stack_b)

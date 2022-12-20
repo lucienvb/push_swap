@@ -6,7 +6,7 @@
 /*   By: lvan-bus <lvan-bus@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/07 11:08:22 by lvan-bus      #+#    #+#                 */
-/*   Updated: 2022/12/16 13:20:35 by lvan-bus      ########   odam.nl         */
+/*   Updated: 2022/12/19 15:27:00 by lvan-bus      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ char		**ft_split(char const *s, char c, char *placeholder);
 
 // PUSH_SWAP FUNCTIONS
 void	ps_sa(t_node **head);
+void	ps_sb(t_node **head);
 void	add_front(t_node **head, int new_content);
 void	ps_pa(t_node **stack_a, t_node **stack_b);
 void	ps_pb(t_node **stack_a, t_node **stack_b);
@@ -58,7 +59,8 @@ void	reverse_rotate(t_node **stack);
 void	rr(t_node **stack_a, t_node **stack_b);
 void	rrr(t_node **stack_a, t_node **stack_b);
 
-// PUSH_SWAP FUNCTIONS -- HEAPSORT
+// PUSH_SWAP FUNCTIONS -- ALGORITHMS
 void	ps_heapsort(t_node **stack_a, t_node **stack_b);
+void	ps_mergesort(t_node **stack_a, t_node **stack_b);
 
 #endif
