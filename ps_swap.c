@@ -19,6 +19,3 @@ void	ps_sb(t_node **head)
 	(*head)->next->content = temp;
 	write(1, "sb\n", 3);
 }
-
-
-

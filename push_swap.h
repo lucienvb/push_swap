@@ -6,7 +6,7 @@
 /*   By: lvan-bus <lvan-bus@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/07 11:08:22 by lvan-bus      #+#    #+#                 */
-/*   Updated: 2022/12/19 15:27:00 by lvan-bus      ########   odam.nl         */
+/*   Updated: 2022/12/23 14:31:54 by lvan-bus      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 typedef struct node
 {
 	int				content;
+	int				index;
 	struct node		*next;
 }					t_node;
 
@@ -30,6 +31,7 @@ typedef struct node
 
 // LIBFT FUNCTIONS
 long long	ft_atoi(const char *str);
+char		*ft_itoa(int n);
 size_t		word_count(char const *s, char c);
 char		**ft_split(char const *s, char c, char *placeholder);
 
@@ -49,18 +51,28 @@ t_node	*new_list(t_node *stack, char **argv);
 t_node	*create_list(t_node *stack, int new_content);
 void	delete_node(t_node **head, int data);
 void	print_list(t_node **head);
+void	print_ind(t_node **head);
 void	add_back(t_node **head, int content);
 int		list_size(t_node *stack);
 t_node	*list_last(t_node *stack);
 
 // PUSH_SWAP FUNCTIONS -- ROTATE
-void	rotate(t_node **stack_a);
-void	reverse_rotate(t_node **stack);
+void	ra(t_node **stack);
+void	rb(t_node **stack);
+void	rra(t_node **stack);
+void	rrb(t_node **stack);
 void	rr(t_node **stack_a, t_node **stack_b);
 void	rrr(t_node **stack_a, t_node **stack_b);
 
 // PUSH_SWAP FUNCTIONS -- ALGORITHMS
 void	ps_heapsort(t_node **stack_a, t_node **stack_b);
-void	ps_mergesort(t_node **stack_a, t_node **stack_b);
+//void	ps_mergesort(t_node **stack_a, t_node **stack_b);
+void	ps_bucket_sort(t_node **stack_a, t_node **stack_b);
+
+// PUSH_SWAP UTILS
+int	already_sorted(t_node *stack);
+int	node_count(t_node *stack);
+long long	find_lowest(t_node **stack, long long highest);
+int	ps_position(t_node *stack, int content);
 
 #endif

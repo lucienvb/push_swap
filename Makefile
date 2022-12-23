@@ -13,7 +13,8 @@ SRC		:= \
 	ps_push.c \
 	ps_swap.c \
 	ps_rotate.c \
-	ps_heapsort.c
+	ps_heapsort.c \
+	ps_bucket_sort.c
 
 OBJ		:= $(SRC:.c=.o)
 

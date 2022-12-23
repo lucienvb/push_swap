@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-static long long	find_lowest(t_node **stack, long long highest)
+long long	find_lowest(t_node **stack, long long highest)
 {
 	t_node	*head;
 
@@ -20,11 +20,13 @@ static long long	find_lowest(t_node **stack, long long highest)
 	return (highest);
 }
 
-static int	ps_position(t_node *stack, int content)
+int	ps_position(t_node *stack, int content)
 {
 	int	position;
 	int	icontent;
+	//t_node	*head;
 
+	//head = stack;
 	icontent = (int)content;
 	position = 0;
 	while (stack->content != icontent)
@@ -32,10 +34,11 @@ static int	ps_position(t_node *stack, int content)
 		position++;
 		stack = stack->next;
 	}
+	//stack = head;
 	return (position);
 }
 
-static int	already_sorted(t_node *stack)
+int	already_sorted(t_node *stack)
 {
 	while (stack->next != NULL)
 	{
@@ -78,7 +81,7 @@ static int	check_reversed(t_node **stack)
 	return (0);
 }*/
 
-/*static int	node_count(t_node *stack)
+int	node_count(t_node *stack)
 {
 	int	i;
 
@@ -89,7 +92,7 @@ static int	check_reversed(t_node **stack)
 		stack = stack->next;
 	}
 	return (i);
-}*/
+}
 
 /*void	sort_three
 
@@ -115,7 +118,7 @@ void	ps_heapsort(t_node **stack_a, t_node **stack_b)
 		{
 			while (position)
 			{
-				rotate(stack_a);
+				ra(stack_a);
 				position--;
 			}
 		}
