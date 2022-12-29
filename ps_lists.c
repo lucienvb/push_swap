@@ -6,7 +6,7 @@
 /*   By: lvan-bus <lvan-bus@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/07 11:07:53 by lvan-bus      #+#    #+#                 */
-/*   Updated: 2022/12/23 14:31:34 by lvan-bus      ########   odam.nl         */
+/*   Updated: 2022/12/29 17:25:31 by lvan-bus      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ void	print_ind(t_node **head)
 	current = *head;
 	while (current != NULL)
 	{
-		printf("%d\n", current->index);
+		printf("%lld\n", current->index);
 		current = current->next;
 	}
 }

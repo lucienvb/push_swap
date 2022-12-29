@@ -40,12 +40,16 @@ int	ps_position(t_node *stack, int content)
 
 int	already_sorted(t_node *stack)
 {
+	t_node	*head;
+
+	head = stack;
 	while (stack->next != NULL)
 	{
 		if (stack->content > stack->next->content)
 			return (0);
 		stack = stack->next;
 	}
+	stack = head;
 	return (1);
 }
 
