@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   ps_push.c                                          :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: lvan-bus <lvan-bus@student.codam.nl>         +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2022/12/30 16:06:49 by lvan-bus      #+#    #+#                 */
+/*   Updated: 2022/12/30 16:06:50 by lvan-bus      ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	add_front(t_node **head, int new_content)
@@ -9,6 +21,7 @@ void	add_front(t_node **head, int new_content)
 		return ;
 	new_node->content = new_content;
 	new_node->next = *head;
+	(*head)->size += 1;
 	*head = new_node;
 }
 
