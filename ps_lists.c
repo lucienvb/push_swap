@@ -6,7 +6,7 @@
 /*   By: lvan-bus <lvan-bus@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/07 11:07:53 by lvan-bus      #+#    #+#                 */
-/*   Updated: 2022/12/30 15:46:22 by lvan-bus      ########   odam.nl         */
+/*   Updated: 2023/01/02 16:16:11 by lvan-bus      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ void	print_ind(t_node **head)
 	current = *head;
 	while (current != NULL)
 	{
-		printf("%lld\n", current->index);
+		printf("%i\n", current->index);
 		current = current->next;
 	}
 }
@@ -118,15 +118,14 @@ t_node	*list_last(t_node *stack)
 void	add_back(t_node **head, int content)
 {
 	t_node	*current;
-	//int		keep_size;
+	int		keep_size;
 
-	//keep_size = (*head)->size;
+	keep_size = (*head)->size;
 	current = *head;
 	while (current->next != NULL)
 		current = current->next;
 	current->next = (t_node *) malloc(sizeof(t_node));
 	current->next->content = content;
-	//(*head)->size = keep_size + 1;
-	(*head)->size += 1;
 	current->next->next = NULL;
+	(*head)->size = keep_size + 1;
 }

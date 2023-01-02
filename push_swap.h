@@ -6,7 +6,7 @@
 /*   By: lvan-bus <lvan-bus@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/07 11:08:22 by lvan-bus      #+#    #+#                 */
-/*   Updated: 2022/12/29 17:35:05 by lvan-bus      ########   odam.nl         */
+/*   Updated: 2023/01/02 14:37:13 by lvan-bus      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 typedef struct node
 {
 	int				content;
-	long long		index;
+	int				index;
 	int				size;
 	struct node		*next;
 }					t_node;
@@ -72,6 +72,7 @@ void	ps_bucket_sort(t_node **stack_a, t_node **stack_b);
 
 // PUSH_SWAP UTILS
 int			already_sorted(t_node *stack);
+int			reversed_sorted(t_node *stack);
 int			node_count(t_node *stack);
 long long	find_lowest(t_node **stack, long long highest);
 int			ps_position(t_node *stack, int content);

@@ -6,7 +6,7 @@
 /*   By: lvan-bus <lvan-bus@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/30 16:06:36 by lvan-bus      #+#    #+#                 */
-/*   Updated: 2022/12/30 16:06:37 by lvan-bus      ########   odam.nl         */
+/*   Updated: 2023/01/02 14:37:00 by lvan-bus      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int	already_sorted(t_node *stack)
 	return (1);
 }
 
-/*static int	reversed_sorted(t_node *stack)
+int	reversed_sorted(t_node *stack)
 {
 	int	i;
 
@@ -80,7 +80,7 @@ int	already_sorted(t_node *stack)
 	return (i);
 }
 
-static int	check_reversed(t_node **stack)
+/*int	check_reversed(t_node **stack)
 {
 	int	i;
 

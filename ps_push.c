@@ -6,7 +6,7 @@
 /*   By: lvan-bus <lvan-bus@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/30 16:06:49 by lvan-bus      #+#    #+#                 */
-/*   Updated: 2022/12/30 16:06:50 by lvan-bus      ########   odam.nl         */
+/*   Updated: 2023/01/02 15:53:34 by lvan-bus      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,16 @@
 void	add_front(t_node **head, int new_content)
 {
 	t_node	*new_node;
+	int		keep_size;
 
+	keep_size = (*head)->size;
 	new_node = (t_node *) malloc(sizeof(t_node));
 	if (!new_node)
 		return ;
 	new_node->content = new_content;
 	new_node->next = *head;
-	(*head)->size += 1;
 	*head = new_node;
+	(*head)->size = keep_size + 1;
 }
 
 void	ps_pa(t_node **stack_a, t_node **stack_b)
