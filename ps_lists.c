@@ -6,7 +6,7 @@
 /*   By: lvan-bus <lvan-bus@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/07 11:07:53 by lvan-bus      #+#    #+#                 */
-/*   Updated: 2023/01/02 16:16:11 by lvan-bus      ########   odam.nl         */
+/*   Updated: 2023/01/03 13:24:18 by lvan-bus      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,14 +48,14 @@ void	delete_node(t_node **head, int data)
 {
 	t_node	*temp;
 	t_node	*prev;
-	int		keep_size;
+	// int		keep_size;
 
 	temp = *head;
-	keep_size = (*head)->size;
+	// keep_size = (*head)->size;
 	if (temp && temp->content == data)
 	{
 		*head = temp->next;
-		(*head)->size = keep_size - 1;
+		//(*head)->size = list_size(*head);
 		free(temp);
 		return ;
 	}
@@ -67,7 +67,7 @@ void	delete_node(t_node **head, int data)
 	if (!temp)
 		return ;
 	prev->next = temp->next;
-	(*head)->size = keep_size - 1;
+	//(*head)->size = keep_size - 1;
 	free(temp);
 }
 
@@ -110,6 +110,8 @@ int	list_size(t_node *stack)
 
 t_node	*list_last(t_node *stack)
 {
+	// if (!stack)
+	// 	return (NULL);
 	while (stack->next != NULL)
 		stack = stack->next;
 	return (stack);
@@ -127,5 +129,5 @@ void	add_back(t_node **head, int content)
 	current->next = (t_node *) malloc(sizeof(t_node));
 	current->next->content = content;
 	current->next->next = NULL;
-	(*head)->size = keep_size + 1;
+ 	(*head)->size = keep_size + 1;
 }

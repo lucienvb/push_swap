@@ -6,7 +6,7 @@
 /*   By: lvan-bus <lvan-bus@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/30 16:06:49 by lvan-bus      #+#    #+#                 */
-/*   Updated: 2023/01/02 15:53:34 by lvan-bus      ########   odam.nl         */
+/*   Updated: 2023/01/03 11:04:54 by lvan-bus      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ void	add_front(t_node **head, int new_content)
 		return ;
 	new_node->content = new_content;
 	new_node->next = *head;
+	new_node->size = keep_size + 1;
 	*head = new_node;
-	(*head)->size = keep_size + 1;
 }
 
 void	ps_pa(t_node **stack_a, t_node **stack_b)
@@ -33,6 +33,10 @@ void	ps_pa(t_node **stack_a, t_node **stack_b)
 	{
 		*stack_a = ps_push(stack_b, stack_a);
 		delete_node(stack_b, (*stack_b)->content);
+		if (*stack_a)
+			(*stack_a)->size = list_size(*stack_a);
+		if (*stack_b)
+			(*stack_b)->size = list_size(*stack_b);
 		write(1, "pa\n", 3);
 	}
 }
@@ -43,6 +47,10 @@ void	ps_pb(t_node **stack_a, t_node **stack_b)
 	{
 		*stack_b = ps_push(stack_a, stack_b);
 		delete_node(stack_a, (*stack_a)->content);
+		if (*stack_a)
+			(*stack_a)->size = list_size(*stack_a);
+		if (*stack_b)
+			(*stack_b)->size = list_size(*stack_b);
 		write(1, "pb\n", 3);
 	}
 }

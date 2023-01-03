@@ -6,7 +6,7 @@
 /*   By: lvan-bus <lvan-bus@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/30 16:06:36 by lvan-bus      #+#    #+#                 */
-/*   Updated: 2023/01/02 14:37:00 by lvan-bus      ########   odam.nl         */
+/*   Updated: 2023/01/03 13:13:56 by lvan-bus      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ int	already_sorted(t_node *stack)
 	t_node	*head;
 
 	head = stack;
+	if (!stack)
+		return (0);
 	while (stack->next != NULL)
 	{
 		if (stack->content > stack->next->content)
@@ -67,17 +69,15 @@ int	already_sorted(t_node *stack)
 
 int	reversed_sorted(t_node *stack)
 {
-	int	i;
-
-	i = 0;
+	if (!stack || stack->size == 1)
+		return (0);
 	while (stack->next != NULL)
 	{
 		if (stack->content < stack->next->content)
 			return (0);
 		stack = stack->next;
-		i++;
 	}
-	return (i);
+	return (1);
 }
 
 /*int	check_reversed(t_node **stack)
