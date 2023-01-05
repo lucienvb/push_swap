@@ -6,7 +6,7 @@
 /*   By: lvan-bus <lvan-bus@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/30 17:12:22 by lvan-bus      #+#    #+#                 */
-/*   Updated: 2023/01/04 17:56:15 by lvan-bus      ########   odam.nl         */
+/*   Updated: 2023/01/05 11:39:25 by lvan-bus      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -174,31 +174,26 @@ static void	ps_push_low_check_num(t_node **stack_a, int num, int i)
 		rra(stack_a);
 		rra(stack_a);
 	}
+	else if (i == 1)
+		ra(stack_a);
 }
 
-static void	ps_push_low_to_b(t_node **stack_a, t_node **stack_b, int ind, int num)
+static void	ps_push_low_to_b(t_node **stack_a, t_node **stack_b, int num)
 {
 	int		i;
 	t_node	*head;
 
 	i = 0;
 	head = *stack_a;
-	while ((*stack_a)->index != ind)
+	while ((*stack_a)->index != 0)
 	{
 		i++;
 		*stack_a = (*stack_a)->next;
 	}
 	*stack_a = head;
-	if (num > 2)
+	if (num > 2 && i != 2)
 		ps_push_low_check_num(stack_a, num, i);
-	// if (i == num)
-	// 	rra(stack_a);
-	// else if (num == 4 && i == 3)
-	// {
-	// 	rra(stack_a);
-	// 	rra(stack_a);
-	// }
-	else if (i != 0)
+	else if (i)
 	{
 		while (i)
 		{
@@ -211,7 +206,7 @@ static void	ps_push_low_to_b(t_node **stack_a, t_node **stack_b, int ind, int nu
 
 static void	ps_sort_4(t_node **stack_a, t_node **stack_b)
 {
-	ps_push_low_to_b(stack_a, stack_b, 0, 3);
+	ps_push_low_to_b(stack_a, stack_b, 3);
 	num_to_index(stack_a, 4);
 	ps_sort_3(stack_a);
 	ps_pa(stack_a, stack_b);
@@ -219,12 +214,12 @@ static void	ps_sort_4(t_node **stack_a, t_node **stack_b)
 
 static void	ps_sort_5(t_node **stack_a, t_node **stack_b)
 {
-	ps_push_low_to_b(stack_a, stack_b, 0, 4);
+	ps_push_low_to_b(stack_a, stack_b, 4);
 	num_to_index(stack_a, 4);
-	ps_push_low_to_b(stack_a, stack_b, 0, 3);
+	ps_push_low_to_b(stack_a, stack_b, 3);
 	if (reversed_sorted(*stack_b) == 0)
 		ps_sb(stack_b);
-	num_to_index(stack_a, 5);
+	num_to_index(stack_a, 3);
 	ps_sort_3(stack_a);
 	ps_pa(stack_a, stack_b);
 	ps_pa(stack_a, stack_b);
@@ -237,15 +232,10 @@ static void	ps_sort_6(t_node **stack_a, t_node **stack_b)
 	i = 5;
 	while (i > 2)
 	{
-		ps_push_low_to_b(stack_a, stack_b, 0, i);
+		ps_push_low_to_b(stack_a, stack_b, i);
 		num_to_index(stack_a, i);
 		i--;
 	}
-	// ps_push_low_to_b(stack_a, stack_b, 0, 5);
-	// num_to_index(stack_a, 5);
-	// ps_push_low_to_b(stack_a, stack_b, 0, 4);
-	// num_to_index(stack_a, 4);
-	// ps_push_low_to_b(stack_a, stack_b, 0, 3);
 	num_to_index(stack_b, 3);
 	ps_rev_sort_3(stack_b);
 	num_to_index(stack_a, 3);
@@ -255,19 +245,12 @@ static void	ps_sort_6(t_node **stack_a, t_node **stack_b)
 		ps_pa(stack_a, stack_b);
 		i--;
 	}
-	// ps_pa(stack_a, stack_b);
-	// ps_pa(stack_a, stack_b);
-	// ps_pa(stack_a, stack_b);
 }
 
 void	ps_bucket_sort(t_node **stack_a, t_node **stack_b)
 {
-	// t_node	*head;
-
-	// head = *stack_a;
 	if (!stack_a || already_sorted(*stack_a) == 1)
 		return ;
-	// *stack_a = head;
 	if ((*stack_a)->size == 2)
 		ps_sa(stack_a);
 	else if ((*stack_a)->size == 3)
