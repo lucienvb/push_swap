@@ -6,7 +6,7 @@
 /*   By: lvan-bus <lvan-bus@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/07 11:08:22 by lvan-bus      #+#    #+#                 */
-/*   Updated: 2023/01/02 14:37:13 by lvan-bus      ########   odam.nl         */
+/*   Updated: 2023/01/06 14:37:12 by lvan-bus      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef struct node
 {
 	int				content;
 	int				index;
+	long long		bin;
 	int				size;
 	struct node		*next;
 }					t_node;
@@ -53,6 +54,7 @@ t_node	*create_list(t_node *stack, int new_content);
 void	delete_node(t_node **head, int data);
 void	print_list(t_node **head);
 void	print_ind(t_node **head);
+void	print_bin(t_node **head);
 void	add_back(t_node **head, int content);
 int		list_size(t_node *stack);
 t_node	*list_last(t_node *stack);
@@ -69,6 +71,7 @@ void	rrr(t_node **stack_a, t_node **stack_b);
 void	ps_heapsort(t_node **stack_a, t_node **stack_b);
 //void	ps_mergesort(t_node **stack_a, t_node **stack_b);
 void	ps_bucket_sort(t_node **stack_a, t_node **stack_b);
+void	ps_radix_sort(t_node **stack_a, t_node **stack_b);
 
 // PUSH_SWAP UTILS
 int			already_sorted(t_node *stack);
@@ -80,5 +83,7 @@ void		num_to_index(t_node **stack, int argc);
 int			next_low(t_node **stack, int new_low);
 int			fil_pos_check(char **str, char *num);
 t_node		**node_position(t_node **stack, int num);
+long long	dec_to_bin(int n) ;
+void		stack_to_bin(t_node **stack);
 
 #endif

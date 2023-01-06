@@ -6,7 +6,7 @@
 /*   By: lvan-bus <lvan-bus@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/30 17:12:22 by lvan-bus      #+#    #+#                 */
-/*   Updated: 2023/01/05 11:39:25 by lvan-bus      ########   odam.nl         */
+/*   Updated: 2023/01/06 11:51:44 by lvan-bus      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -262,6 +262,5 @@ void	ps_bucket_sort(t_node **stack_a, t_node **stack_b)
 	else if ((*stack_a)->size == 6)
 		ps_sort_6(stack_a, stack_b);
 	else
-		return ;
-	// 	ps_sort_4_and_more(stack_a, stack_b);
+		ps_radix_sort(stack_a, stack_b);
 }

@@ -6,7 +6,7 @@
 /*   By: lvan-bus <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/07 11:06:58 by lvan-bus      #+#    #+#                 */
-/*   Updated: 2023/01/04 15:02:04 by lvan-bus      ########   odam.nl         */
+/*   Updated: 2023/01/06 17:57:05 by lvan-bus      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,13 +61,14 @@ int	main(int argc, char **argv)
 	num_to_index(&stack_a, argc);
 	ps_bucket_sort(&stack_a, &stack_b);
 	
+	// stack_to_bin(&stack_a);
 	// ps_pb(&stack_a, &stack_b);
 	// ps_pa(&stack_a, &stack_b);
 	
-	printf("\nstack_a:\n");
-	print_list(&stack_a);
-	printf("\nstack_b:\n");
-	print_list(&stack_b);
+	// printf("\nstack_a:\n");
+	// print_list(&stack_a);
+	// printf("\nstack_b:\n");
+	// print_list(&stack_b);
 	
 	//while (1);
 	return (0);

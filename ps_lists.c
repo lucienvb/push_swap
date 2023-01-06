@@ -6,7 +6,7 @@
 /*   By: lvan-bus <lvan-bus@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/07 11:07:53 by lvan-bus      #+#    #+#                 */
-/*   Updated: 2023/01/03 13:24:18 by lvan-bus      ########   odam.nl         */
+/*   Updated: 2023/01/06 17:19:28 by lvan-bus      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,14 +48,11 @@ void	delete_node(t_node **head, int data)
 {
 	t_node	*temp;
 	t_node	*prev;
-	// int		keep_size;
 
 	temp = *head;
-	// keep_size = (*head)->size;
 	if (temp && temp->content == data)
 	{
 		*head = temp->next;
-		//(*head)->size = list_size(*head);
 		free(temp);
 		return ;
 	}
@@ -67,7 +64,6 @@ void	delete_node(t_node **head, int data)
 	if (!temp)
 		return ;
 	prev->next = temp->next;
-	//(*head)->size = keep_size - 1;
 	free(temp);
 }
 
@@ -91,6 +87,18 @@ void	print_ind(t_node **head)
 	while (current != NULL)
 	{
 		printf("%i\n", current->index);
+		current = current->next;
+	}
+}
+
+void	print_bin(t_node **head)
+{
+	t_node	*current;
+
+	current = *head;
+	while (current != NULL)
+	{
+		printf("%lli\n", current->bin);
 		current = current->next;
 	}
 }
