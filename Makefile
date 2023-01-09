@@ -29,7 +29,8 @@ all:	$(NAME)
 
 $(NAME): $(OBJ)
 		$(MAKE) -C ./libft
-		$(CC) $^ ./libft/libft.a -o $(NAME)
+		$(MAKE) -C ./ft_printf
+		$(CC) $^ ./libft/libft.a ./ft_printf/libftprintf.a -o $(NAME)
 
 %.o: %.c
 		$(CC) -c $(CFLAGS) -o $@ $^
@@ -37,10 +38,12 @@ $(NAME): $(OBJ)
 clean:
 		rm -f $(OBJ)
 		$(MAKE) -C ./libft clean
+		$(MAKE) -C ./ft_printf clean
 
 fclean: clean
 		rm -f $(NAME)
 		$(MAKE) -C ./libft fclean
+		$(MAKE) -C ./ft_printf fclean
 
 re: fclean all
 

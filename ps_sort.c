@@ -6,7 +6,7 @@
 /*   By: lvan-bus <lvan-bus@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/30 17:12:22 by lvan-bus      #+#    #+#                 */
-/*   Updated: 2023/01/09 11:21:01 by lvan-bus      ########   odam.nl         */
+/*   Updated: 2023/01/09 17:09:31 by lvan-bus      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ps_sort_3(t_node **stack)
 		return ;
 	if ((*stack)->index == 0)
 	{
-		rra(stack);
+		rev_rot(stack, 'a');
 		ps_sa(stack);
 		return ;
 	}
@@ -27,16 +27,16 @@ void	ps_sort_3(t_node **stack)
 		if ((*stack)->next->index == 0)
 			ps_sa(stack);
 		else
-			rra(stack);
+			rev_rot(stack, 'a');
 		return ;
 	}
 	if ((*stack)->next->index == 1)
 	{
 		ps_sa(stack);
-		rra(stack);
+		rev_rot(stack, 'a');
 	}
 	else
-		ra(stack);
+		rot(stack, 'a');
 }
 
 void	ps_rev_sort_3(t_node **stack)
@@ -46,13 +46,13 @@ void	ps_rev_sort_3(t_node **stack)
 	if ((*stack)->index == 2)
 	{
 		ps_sb(stack);
-		rb(stack);
+		rot(stack, 'b');
 		return ;
 	}
 	else if ((*stack)->index == 1)
 	{
 		if ((*stack)->next->index == 0)
-			rrb(stack);
+			rev_rot(stack, 'b');
 		else
 			ps_sb(stack);
 		return ;
@@ -60,10 +60,10 @@ void	ps_rev_sort_3(t_node **stack)
 	if ((*stack)->next->index == 1)
 	{
 		ps_sb(stack);
-		rrb(stack);
+		rev_rot(stack, 'b');
 	}
 	else
-		rb(stack);
+		rot(stack, 'b');
 }
 
 void	ps_sort_4(t_node **stack_a, t_node **stack_b)

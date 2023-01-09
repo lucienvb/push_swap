@@ -6,7 +6,7 @@
 /*   By: lvan-bus <lvan-bus@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/07 11:08:22 by lvan-bus      #+#    #+#                 */
-/*   Updated: 2023/01/09 12:12:38 by lvan-bus      ########   odam.nl         */
+/*   Updated: 2023/01/09 17:09:08 by lvan-bus      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 # include <limits.h>
 # include <unistd.h>
 # include <stdio.h>
+# include "./ft_printf/ft_printf.h"
+# include "./libft/libft.h"
 
 // STRUCTURES
 typedef struct node
@@ -31,10 +33,13 @@ typedef struct node
 // DEFINE
 
 // LIBFT FUNCTIONS
-long long	ft_atoi(const char *str);
-char		*ft_itoa(int n);
-size_t		word_count(char const *s, char c);
-char		**ft_split(char const *s, char c, char *placeholder);
+// long long	ft_atoi(const char *str);
+// char		*ft_itoa(int n);
+// size_t		word_count(char const *s, char c);
+// char		**ft_split(char const *s, char c, char *placeholder);
+
+// FT_PRINTF
+
 
 // PUSH_SWAP OPERATIONS -- SWAP & PUSH
 void		ps_sa(t_node **head);
@@ -57,10 +62,11 @@ t_node		*list_last(t_node *stack);
 void		add_front(t_node **head, int new_content);
 
 // PUSH_SWAP OPERATIONS -- ROTATE
-void		ra(t_node **stack);
-void		rb(t_node **stack);
-void		rra(t_node **stack);
-void		rrb(t_node **stack);
+void		rot(t_node **stack, char c);
+void		rev_rot(t_node **stack, char c);
+//void		rb(t_node **stack);
+// void		rra(t_node **stack);
+// void		rrb(t_node **stack);
 
 // PUSH_SWAP FUNCTIONS -- ALGORITHM
 void		ps_radix_sort(t_node **stack_a, t_node **stack_b);

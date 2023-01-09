@@ -6,7 +6,7 @@
 /*   By: lvan-bus <lvan-bus@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/09 10:43:54 by lvan-bus      #+#    #+#                 */
-/*   Updated: 2023/01/09 11:03:49 by lvan-bus      ########   odam.nl         */
+/*   Updated: 2023/01/09 16:36:09 by lvan-bus      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	ps_radix_sort(t_node **stack_a, t_node **stack_b)
 		while (i < count)
 		{
 			if (((*stack_a)->index >> j) & 1)
-				ra(stack_a);
+				rot(stack_a, 'a');
 			else
 				ps_pb(stack_a, stack_b);
 			i++;

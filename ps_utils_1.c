@@ -6,7 +6,7 @@
 /*   By: lvan-bus <lvan-bus@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/30 16:06:55 by lvan-bus      #+#    #+#                 */
-/*   Updated: 2023/01/09 11:15:29 by lvan-bus      ########   odam.nl         */
+/*   Updated: 2023/01/09 17:10:38 by lvan-bus      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,20 +63,20 @@ t_node	**node_position(t_node **stack, int num)
 void	ps_push_low_check_num(t_node **stack_a, int num, int i)
 {
 	if (i == num)
-		rra(stack_a);
+		rev_rot(stack_a, 'a');
 	else if ((num == 4 && i == 3) || (num == 5 && i == 4))
 	{
-		rra(stack_a);
-		rra(stack_a);
+		rev_rot(stack_a, 'a');
+		rev_rot(stack_a, 'a');
 	}
 	else if (num == 5 && i == 3)
 	{
-		rra(stack_a);
-		rra(stack_a);
-		rra(stack_a);
+		rev_rot(stack_a, 'a');
+		rev_rot(stack_a, 'a');
+		rev_rot(stack_a, 'a');
 	}
 	else if (i == 1)
-		ra(stack_a);
+		rot(stack_a, 'a');
 }
 
 void	ps_push_low_to_b(t_node **stack_a, t_node **stack_b, int num)
@@ -98,7 +98,7 @@ void	ps_push_low_to_b(t_node **stack_a, t_node **stack_b, int num)
 	{
 		while (i)
 		{
-			ra(stack_a);
+			rot(stack_a, 'a');
 			i--;
 		}
 	}

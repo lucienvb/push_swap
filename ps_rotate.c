@@ -6,44 +6,51 @@
 /*   By: lvan-bus <lvan-bus@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/09 10:44:58 by lvan-bus      #+#    #+#                 */
-/*   Updated: 2023/01/09 12:11:59 by lvan-bus      ########   odam.nl         */
+/*   Updated: 2023/01/09 17:17:16 by lvan-bus      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
 
-void	ra(t_node **stack)
+void	rot(t_node **stack, char c)
 {
-	int	temp;
-	int	keep_size;
+	t_node	*temp;
+	t_node	*last;
 
-	if (!stack)
+	if (!*stack || (*stack)->next == NULL)
 		return ;
-	keep_size = (*stack)->size;
-	temp = (*stack)->content;
-	delete_node(stack, (*stack)->content);
-	add_back(stack, temp);
-	(*stack)->size = keep_size;
-	write(1, "ra\n", 3);
+	temp = (*stack)->next;
+	//ft_printf("temp: %i\n", temp);
+	last = list_last(*stack);
+	last->next = *stack;
+	//ft_printf("%i\n", (*stack)->next);
+	(*stack)->next = NULL;
+	*stack = temp;
+	ft_printf("r%c\n", c);
 }
 
-void	rb(t_node **stack)
+void	rev_rot(t_node **stack, char c)
 {
-	int	temp;
-	int	keep_size;
-
-	if (!stack)
+	t_node	*temp;
+	t_node	*last;
+	
+	if (!*stack || (*stack)->next == NULL)
 		return ;
-	keep_size = (*stack)->size;
-	temp = (*stack)->content;
-	delete_node(stack, (*stack)->content);
-	add_back(stack, temp);
-	(*stack)->size = keep_size;
-	write(1, "rb\n", 3);
+	last = list_last(*stack);
+	temp = *stack;
+	while (temp)
+	{
+		if (temp->next->next == NULL)
+			temp->next = NULL;
+		temp = temp->next;
+	}
+	last->next = *stack;
+	*stack = last;
+	ft_printf("rr%c\n", c);
 }
 
-void	rra(t_node **stack)
+/*void	rra(t_node **stack)
 {
 	int		temp;
 	t_node	*second_last;
@@ -61,9 +68,9 @@ void	rra(t_node **stack)
 	add_front(stack, temp);
 	(*stack)->size = keep_size;
 	write(1, "rra\n", 4);
-}
+}*/
 
-void	rrb(t_node **stack)
+/*void	rrb(t_node **stack)
 {
 	int		temp;
 	t_node	*second_last;
@@ -81,4 +88,4 @@ void	rrb(t_node **stack)
 	add_front(stack, temp);
 	(*stack)->size = keep_size;
 	write(1, "rrb\n", 4);
-}
+}*/
