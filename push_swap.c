@@ -6,42 +6,38 @@
 /*   By: lvan-bus <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/07 11:06:58 by lvan-bus      #+#    #+#                 */
-/*   Updated: 2023/01/06 17:57:05 by lvan-bus      ########   odam.nl         */
+/*   Updated: 2023/01/09 11:51:58 by lvan-bus      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
 
-/*static long long	ps_find_lowest(t_node *stack)
+static void	ps_sort(t_node **stack_a, t_node **stack_b, int argc)
 {
-	t_node		*head;
-	long long	lowest;
-	
-	head = stack;
-	lowest = 2147483648;
-	while (stack)
-	{
-		if (lowest == 2147483648)
-			lowest = (stack)->content;
-		else
-		{
-			if ((stack)->content < lowest)
-				lowest = (stack)->content;
-		}
-		stack = (stack)->next;
-	}
-	stack = head;
-	return (lowest);
-}*/
+	num_to_index(stack_a, argc);
+	if (!stack_a || already_sorted(*stack_a) == 1)
+		return ;
+	if ((*stack_a)->size == 2)
+		ps_sa(stack_a);
+	else if ((*stack_a)->size == 3)
+		ps_sort_3(stack_a);
+	else if ((*stack_a)->size == 4)
+		ps_sort_4(stack_a, stack_b);
+	else if ((*stack_a)->size == 5)
+		ps_sort_5(stack_a, stack_b);
+	else if ((*stack_a)->size == 6)
+		ps_sort_6(stack_a, stack_b);
+	else
+		ps_radix_sort(stack_a, stack_b);
+}
 
 int	main(int argc, char **argv)
-//int		checkLeaks(int argc, char **argv)
 {
 	t_node	*stack_a;
 	t_node	*stack_b;
 	int		i;
-	
+
 	stack_a = NULL;
 	stack_b = NULL;
 	argv = convert_and_check(argc, argv);
@@ -51,30 +47,6 @@ int	main(int argc, char **argv)
 	stack_a = new_list(stack_a, argv);
 	while (argv[i])
 		add_back(&stack_a, ft_atoi(argv[i++]));
-	// printf("stack_a:\n");
-	// print_list(&stack_a);
-	// printf("\nstack_b:\n");
-	// print_list(&stack_b);
-	
-	// printf("\nstack_a:\n");
-	// print_ind(&stack_a);
-	num_to_index(&stack_a, argc);
-	ps_bucket_sort(&stack_a, &stack_b);
-	
-	// stack_to_bin(&stack_a);
-	// ps_pb(&stack_a, &stack_b);
-	// ps_pa(&stack_a, &stack_b);
-	
-	// printf("\nstack_a:\n");
-	// print_list(&stack_a);
-	// printf("\nstack_b:\n");
-	// print_list(&stack_b);
-	
-	//while (1);
+	ps_sort(&stack_a, &stack_b, argc);
 	return (0);
 }
-
-/*int	main(int argc, char **argv)
-{
-	checkLeaks(argc, argv);
-}*/

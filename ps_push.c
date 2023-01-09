@@ -6,11 +6,28 @@
 /*   By: lvan-bus <lvan-bus@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/30 16:06:49 by lvan-bus      #+#    #+#                 */
-/*   Updated: 2023/01/03 11:04:54 by lvan-bus      ########   odam.nl         */
+/*   Updated: 2023/01/09 12:12:27 by lvan-bus      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+// void	$stack_add_front(t_node *stack, t_node *node)
+// {
+// 	t_node *last;
+
+// 	if (stack->next == NULL)
+// 	{
+// 		stack->size++;
+// 		stack->next = node;
+// 		node->next = node;
+// 		return ;
+// 	}
+// 	last = list_last(stack);
+// 	stack->size++;
+// 	node->next = stack->next;
+// 	last->next = node;
+// }
 
 void	add_front(t_node **head, int new_content)
 {
@@ -57,12 +74,12 @@ void	ps_pb(t_node **stack_a, t_node **stack_b)
 
 t_node	*ps_push(t_node **push, t_node **pull)
 {
-	
 	if (!*push)
 		return (NULL);
 	if (*pull == NULL)
 		*pull = create_list(*pull, (*push)->content);
 	else
+		//add_front(*pull, *push);
 		add_front(pull, (*push)->content);
 	return (*pull);
 }

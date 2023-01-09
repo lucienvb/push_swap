@@ -6,7 +6,7 @@
 /*   By: lvan-bus <lvan-bus@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/07 11:07:53 by lvan-bus      #+#    #+#                 */
-/*   Updated: 2023/01/06 17:19:28 by lvan-bus      ########   odam.nl         */
+/*   Updated: 2023/01/09 11:56:30 by lvan-bus      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,42 +67,6 @@ void	delete_node(t_node **head, int data)
 	free(temp);
 }
 
-void	print_list(t_node **head)
-{
-	t_node	*current;
-
-	current = *head;
-	while (current != NULL)
-	{
-		printf("%d\n", current->content);
-		current = current->next;
-	}
-}
-
-void	print_ind(t_node **head)
-{
-	t_node	*current;
-
-	current = *head;
-	while (current != NULL)
-	{
-		printf("%i\n", current->index);
-		current = current->next;
-	}
-}
-
-void	print_bin(t_node **head)
-{
-	t_node	*current;
-
-	current = *head;
-	while (current != NULL)
-	{
-		printf("%lli\n", current->bin);
-		current = current->next;
-	}
-}
-
 int	list_size(t_node *stack)
 {
 	int	size;
@@ -118,12 +82,26 @@ int	list_size(t_node *stack)
 
 t_node	*list_last(t_node *stack)
 {
-	// if (!stack)
-	// 	return (NULL);
 	while (stack->next != NULL)
 		stack = stack->next;
 	return (stack);
 }
+
+// void	add_back(t_node *from, t_node *to)
+// {
+// 	t_node	*temp;
+
+// 	to->size++;
+// 	if (to->next == NULL)
+// 	{
+// 		from->next = from;
+// 		to->next = from;
+// 		return ;
+// 	}
+// 	temp = list_last(to);
+// 	from->next = to->next;
+// 	temp->next = from;
+// }
 
 void	add_back(t_node **head, int content)
 {
@@ -137,5 +115,5 @@ void	add_back(t_node **head, int content)
 	current->next = (t_node *) malloc(sizeof(t_node));
 	current->next->content = content;
 	current->next->next = NULL;
- 	(*head)->size = keep_size + 1;
+	(*head)->size = keep_size + 1;
 }

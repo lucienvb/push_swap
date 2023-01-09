@@ -1,40 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   ps_radix_sort.c                                    :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: lvan-bus <lvan-bus@student.codam.nl>         +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2023/01/09 10:43:54 by lvan-bus      #+#    #+#                 */
+/*   Updated: 2023/01/09 11:03:49 by lvan-bus      ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdio.h>
 #include "push_swap.h"
 #include <stdarg.h>
-
-long long	dec_to_bin(int n) 
-{
-	long long	bin;
-	int			mod;
-	int			i;
-	
-	i = 1;
-	bin = 0;
-	while (n != 0) 
-	{
-		mod = n % 2;
-		n /= 2;
-		bin += mod * i;
-		i *= 10;
-	}
-	return (bin);
-}
-
-void	stack_to_bin(t_node **stack)
-{
-	t_node	*head;
-	int		count;
-
-	count = list_size(*stack) + 1;
-	num_to_index(stack, count);
-	head = *stack;
-	while (*stack)
-	{
-		(*stack)->bin = dec_to_bin((*stack)->index);
-		*stack = (*stack)->next;
-	}
-	*stack = head;
-}
 
 void	ps_radix_sort(t_node **stack_a, t_node **stack_b)
 {

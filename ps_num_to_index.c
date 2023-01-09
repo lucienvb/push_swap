@@ -6,7 +6,7 @@
 /*   By: lvan-bus <lvan-bus@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/30 16:06:33 by lvan-bus      #+#    #+#                 */
-/*   Updated: 2023/01/02 13:19:41 by lvan-bus      ########   odam.nl         */
+/*   Updated: 2023/01/09 10:42:36 by lvan-bus      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,16 @@ static int	set_low(t_node **stack, int low, int i)
 
 static int	set_new_low(t_node **stack, int new_low, int i)
 {
+	t_node	*head;
+
+	head = *stack;
 	while (*stack)
 	{
 		if ((*stack)->content == new_low)
 			(*stack)->index = i++;
 		*stack = (*stack)->next;
 	}
+	*stack = head;
 	return (i);
 }
 
@@ -63,6 +67,8 @@ static void	set_remaining(t_node **stack, int low, int i, int argc)
 		new_low = (*stack)->next->content;
 	else
 		new_low = (*stack)->content;
+	if (argc == 2)
+		argc = node_count(*stack) + 1;
 	while (argc > 2)
 	{
 		while (*stack && (*stack)->next)
@@ -74,10 +80,8 @@ static void	set_remaining(t_node **stack, int low, int i, int argc)
 		}
 		*stack = head;
 		i = set_new_low(stack, new_low, i);
-		*stack = head;
 		low = new_low;
 		new_low = next_low(stack, new_low);
-		*stack = head;
 		argc--;
 	}
 }
