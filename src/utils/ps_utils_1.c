@@ -6,11 +6,11 @@
 /*   By: lvan-bus <lvan-bus@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/30 16:06:55 by lvan-bus      #+#    #+#                 */
-/*   Updated: 2023/01/10 11:32:11 by lvan-bus      ########   odam.nl         */
+/*   Updated: 2023/01/10 16:23:07 by lvan-bus      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../push_swap.h"
 
 int	fil_pos_check(char **str, char *num)
 {

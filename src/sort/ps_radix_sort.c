@@ -6,11 +6,11 @@
 /*   By: lvan-bus <lvan-bus@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/09 10:43:54 by lvan-bus      #+#    #+#                 */
-/*   Updated: 2023/01/10 13:33:33 by lvan-bus      ########   odam.nl         */
+/*   Updated: 2023/01/10 16:22:55 by lvan-bus      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../push_swap.h"
 
 void	ps_radix_sort(t_node **stack_a, t_node **stack_b)
 {

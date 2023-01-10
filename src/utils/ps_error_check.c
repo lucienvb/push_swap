@@ -6,11 +6,11 @@
 /*   By: lvan-bus <lvan-bus@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/07 11:08:44 by lvan-bus      #+#    #+#                 */
-/*   Updated: 2023/01/10 12:22:01 by lvan-bus      ########   odam.nl         */
+/*   Updated: 2023/01/10 16:23:00 by lvan-bus      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../push_swap.h"
 
 static int	error_double_check(char **argv)
 {

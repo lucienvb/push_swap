@@ -7,17 +7,17 @@ CC		:= cc
 CFLAGS	?= -Wall -Wextra -Werror -g
 
 SRC		:= \
-	push_swap.c \
-	ps_error_check.c \
-	ps_lists.c \
-	ps_push.c \
-	ps_swap.c \
-	ps_rotate.c \
-	ps_sort.c \
-	ps_num_to_index.c \
-	ps_utils_1.c \
-	ps_utils_2.c \
-	ps_radix_sort.c
+	src/main.c \
+	src/operations/ps_push.c \
+	src/operations/ps_rotate.c \
+	src/operations/ps_swap.c \
+	src/sort/ps_radix_sort.c \
+	src/sort/ps_sort.c \
+	src/utils/ps_error_check.c \
+	src/utils/ps_lists.c \
+	src/utils/ps_num_to_index.c \
+	src/utils/ps_utils_1.c \
+	src/utils/ps_utils_2.c
 
 OBJ		:= $(SRC:.c=.o)
 

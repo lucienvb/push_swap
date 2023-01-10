@@ -6,13 +6,11 @@
 /*   By: lvan-bus <lvan-bus@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/07 11:07:53 by lvan-bus      #+#    #+#                 */
-/*   Updated: 2023/01/10 13:27:29 by lvan-bus      ########   odam.nl         */
+/*   Updated: 2023/01/10 16:23:02 by lvan-bus      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-#include <stdio.h>
+#include "../../push_swap.h"
 
 void	add_back(t_node **head, int content)
 {

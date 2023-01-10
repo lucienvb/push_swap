@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ps_push.c                                          :+:    :+:            */
+/*   ps_swap.c                                          :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lvan-bus <lvan-bus@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/12/30 16:06:49 by lvan-bus      #+#    #+#                 */
-/*   Updated: 2023/01/10 11:55:17 by lvan-bus      ########   odam.nl         */
+/*   Created: 2022/12/30 16:06:51 by lvan-bus      #+#    #+#                 */
+/*   Updated: 2023/01/10 16:22:33 by lvan-bus      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../push_swap.h"
 
-void	push(t_node **push, t_node **pull, char c)
+void	swap(t_node **head, char c)
 {
-	t_node	*temp;
+	t_node	*first;
+	t_node	*second;
 
-	if (!*push || !pull)
+	first = *head;
+	if (!first)
 		return ;
-	temp = *push;
-	if (!temp)
+	second = first->next;
+	if (!second)
 		return ;
-	*push = temp->next;
-	temp->next = *pull;
-	*pull = temp;
-	ft_printf("p%c\n", c);
+	first->next = second->next;
+	second->next = first;
+	*head = second;
+	ft_printf("s%c\n", c);
 }

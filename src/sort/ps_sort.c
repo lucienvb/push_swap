@@ -6,11 +6,11 @@
 /*   By: lvan-bus <lvan-bus@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/30 17:12:22 by lvan-bus      #+#    #+#                 */
-/*   Updated: 2023/01/10 11:51:34 by lvan-bus      ########   odam.nl         */
+/*   Updated: 2023/01/10 16:22:57 by lvan-bus      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../push_swap.h"
 
 void	ps_sort_3(t_node **stack)
 {

@@ -6,12 +6,11 @@
 /*   By: lvan-bus <lvan-bus@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/09 10:44:58 by lvan-bus      #+#    #+#                 */
-/*   Updated: 2023/01/10 13:20:07 by lvan-bus      ########   odam.nl         */
+/*   Updated: 2023/01/10 16:22:51 by lvan-bus      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include <stdio.h>
+#include "../../push_swap.h"
 
 void	rot(t_node **stack, char c)
 {
