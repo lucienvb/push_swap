@@ -6,34 +6,25 @@
 /*   By: lvan-bus <lvan-bus@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/30 16:06:51 by lvan-bus      #+#    #+#                 */
-/*   Updated: 2023/01/09 10:45:52 by lvan-bus      ########   odam.nl         */
+/*   Updated: 2023/01/10 10:28:31 by lvan-bus      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ps_sa(t_node **head)
+void	swap(t_node **head, char c)
 {
-	int	temp;
-	int	keep_size;
+	t_node	*first;
+	t_node	*second;
 
-	keep_size = (*head)->size;
-	temp = (*head)->content;
-	(*head)->content = (*head)->next->content;
-	(*head)->next->content = temp;
-	(*head)->size = keep_size;
-	write(1, "sa\n", 3);
-}
-
-void	ps_sb(t_node **head)
-{
-	int	temp;
-	int	keep_size;
-
-	keep_size = (*head)->size;
-	temp = (*head)->content;
-	(*head)->content = (*head)->next->content;
-	(*head)->next->content = temp;
-	(*head)->size = keep_size;
-	write(1, "sb\n", 3);
+	first = *head;
+	if (!first)
+		return ;
+	second = first->next;
+	if (!second)
+		return ;
+	first->next = second->next;
+	second->next = first;
+	*head = second;
+	ft_printf("s%c\n", c);
 }

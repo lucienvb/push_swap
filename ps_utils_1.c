@@ -6,7 +6,7 @@
 /*   By: lvan-bus <lvan-bus@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/30 16:06:55 by lvan-bus      #+#    #+#                 */
-/*   Updated: 2023/01/09 17:10:38 by lvan-bus      ########   odam.nl         */
+/*   Updated: 2023/01/10 11:32:11 by lvan-bus      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,5 +102,5 @@ void	ps_push_low_to_b(t_node **stack_a, t_node **stack_b, int num)
 			i--;
 		}
 	}
-	ps_pb(stack_a, stack_b);
+	push(stack_a, stack_b, 'b');
 }

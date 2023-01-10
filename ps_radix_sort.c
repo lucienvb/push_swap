@@ -6,13 +6,11 @@
 /*   By: lvan-bus <lvan-bus@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/09 10:43:54 by lvan-bus      #+#    #+#                 */
-/*   Updated: 2023/01/09 16:36:09 by lvan-bus      ########   odam.nl         */
+/*   Updated: 2023/01/10 13:33:33 by lvan-bus      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "push_swap.h"
-#include <stdarg.h>
 
 void	ps_radix_sort(t_node **stack_a, t_node **stack_b)
 {
@@ -30,11 +28,11 @@ void	ps_radix_sort(t_node **stack_a, t_node **stack_b)
 			if (((*stack_a)->index >> j) & 1)
 				rot(stack_a, 'a');
 			else
-				ps_pb(stack_a, stack_b);
+				push(stack_a, stack_b, 'b');
 			i++;
 		}
 		while (*stack_b)
-			ps_pa(stack_a, stack_b);
+			push(stack_b, stack_a, 'a');
 		num_to_index(stack_a, count + 1);
 		j++;
 	}

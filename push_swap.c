@@ -6,12 +6,11 @@
 /*   By: lvan-bus <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/07 11:06:58 by lvan-bus      #+#    #+#                 */
-/*   Updated: 2023/01/09 11:51:58 by lvan-bus      ########   odam.nl         */
+/*   Updated: 2023/01/10 13:33:22 by lvan-bus      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 static void	ps_sort(t_node **stack_a, t_node **stack_b, int argc)
 {
@@ -19,7 +18,7 @@ static void	ps_sort(t_node **stack_a, t_node **stack_b, int argc)
 	if (!stack_a || already_sorted(*stack_a) == 1)
 		return ;
 	if ((*stack_a)->size == 2)
-		ps_sa(stack_a);
+		swap(stack_a, 'a');
 	else if ((*stack_a)->size == 3)
 		ps_sort_3(stack_a);
 	else if ((*stack_a)->size == 4)
@@ -48,5 +47,6 @@ int	main(int argc, char **argv)
 	while (argv[i])
 		add_back(&stack_a, ft_atoi(argv[i++]));
 	ps_sort(&stack_a, &stack_b, argc);
+	clear_list(stack_a, stack_b);
 	return (0);
 }

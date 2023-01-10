@@ -6,7 +6,7 @@
 /*   By: lvan-bus <lvan-bus@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/07 11:07:53 by lvan-bus      #+#    #+#                 */
-/*   Updated: 2023/01/09 11:56:30 by lvan-bus      ########   odam.nl         */
+/*   Updated: 2023/01/10 13:27:29 by lvan-bus      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,57 +14,51 @@
 
 #include <stdio.h>
 
-t_node	*new_list(t_node *stack, char **argv)
+void	add_back(t_node **head, int content)
 {
-	t_node	*new;
+	t_node	*current;
 
-	if (!argv)
-		return (NULL);
-	new = (t_node *) malloc(sizeof(t_node));
-	if (!new)
-		return (NULL);
-	new->content = ft_atoi(argv[1]);
-	new->size = 1;
-	new->next = NULL;
-	new->next = stack;
-	return (new);
+	current = *head;
+	while (current->next != NULL)
+		current = current->next;
+	current->next = (t_node *) malloc(sizeof(t_node));
+	current->next->content = content;
+	current->next->next = NULL;
+	(*head)->size++;
 }
 
-t_node	*create_list(t_node *stack, int new_content)
-{
-	t_node	*new;
-
-	new = (t_node *) malloc(sizeof(t_node));
-	if (!new)
-		return (NULL);
-	new->content = new_content;
-	new->size = 1;
-	new->next = NULL;
-	new->next = stack;
-	return (new);
-}
-
-void	delete_node(t_node **head, int data)
+void	clear_list(t_node *stack_a, t_node *stack_b)
 {
 	t_node	*temp;
-	t_node	*prev;
+	int		size;
 
-	temp = *head;
-	if (temp && temp->content == data)
+	if (!stack_a)
+		return ;
+	size = list_size(stack_a);
+	while (size)
 	{
-		*head = temp->next;
+		temp = stack_a;
+		stack_a = temp->next;
 		free(temp);
-		return ;
+		size--;
 	}
-	while (temp && temp->content != data)
+	if (!stack_b)
+		return ;
+	size = list_size(stack_b);
+	while (size)
 	{
-		prev = temp;
-		temp = temp->next;
+		temp = stack_b;
+		stack_b = temp->next;
+		free(temp);
+		size--;
 	}
-	if (!temp)
-		return ;
-	prev->next = temp->next;
-	free(temp);
+}
+
+t_node	*list_last(t_node *stack)
+{
+	while (stack->next != NULL)
+		stack = stack->next;
+	return (stack);
 }
 
 int	list_size(t_node *stack)
@@ -80,40 +74,18 @@ int	list_size(t_node *stack)
 	return (size);
 }
 
-t_node	*list_last(t_node *stack)
+t_node	*new_list(t_node *stack, char **argv)
 {
-	while (stack->next != NULL)
-		stack = stack->next;
-	return (stack);
-}
+	t_node	*new;
 
-// void	add_back(t_node *from, t_node *to)
-// {
-// 	t_node	*temp;
-
-// 	to->size++;
-// 	if (to->next == NULL)
-// 	{
-// 		from->next = from;
-// 		to->next = from;
-// 		return ;
-// 	}
-// 	temp = list_last(to);
-// 	from->next = to->next;
-// 	temp->next = from;
-// }
-
-void	add_back(t_node **head, int content)
-{
-	t_node	*current;
-	int		keep_size;
-
-	keep_size = (*head)->size;
-	current = *head;
-	while (current->next != NULL)
-		current = current->next;
-	current->next = (t_node *) malloc(sizeof(t_node));
-	current->next->content = content;
-	current->next->next = NULL;
-	(*head)->size = keep_size + 1;
+	if (!argv)
+		return (NULL);
+	new = (t_node *) malloc(sizeof(t_node));
+	if (!new)
+		return (NULL);
+	new->content = ft_atoi(argv[1]);
+	new->size = 1;
+	new->next = NULL;
+	new->next = stack;
+	return (new);
 }
