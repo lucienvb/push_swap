@@ -6,11 +6,26 @@
 /*   By: lvan-bus <lvan-bus@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/30 16:06:55 by lvan-bus      #+#    #+#                 */
-/*   Updated: 2023/01/11 12:47:32 by lvan-bus      ########   odam.nl         */
+/*   Updated: 2023/01/11 16:40:45 by lvan-bus      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
+
+void	free_argv(char **argv, int two_args)
+{
+	int	i;
+
+	if (two_args == 0)
+		return ;
+	i = 1;
+	while (argv[i])
+	{
+		free(argv[i]);
+		i++;
+	}
+	free(argv);
+}
 
 int	next_low(t_node **stack, int new_low)
 {
