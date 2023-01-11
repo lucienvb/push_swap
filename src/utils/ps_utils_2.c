@@ -6,7 +6,7 @@
 /*   By: lvan-bus <lvan-bus@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/30 16:06:36 by lvan-bus      #+#    #+#                 */
-/*   Updated: 2023/01/10 16:23:10 by lvan-bus      ########   odam.nl         */
+/*   Updated: 2023/01/11 12:45:15 by lvan-bus      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,26 +27,6 @@ int	already_sorted(t_node *stack)
 	}
 	stack = head;
 	return (1);
-}
-
-long long	find_lowest(t_node **stack, long long highest)
-{
-	t_node	*head;
-
-	head = *stack;
-	while (*stack)
-	{
-		if (highest == 2147483648)
-			highest = (*stack)->content;
-		else
-		{
-			if ((*stack)->content < highest)
-				highest = (*stack)->content;
-		}
-		*stack = (*stack)->next;
-	}
-	*stack = head;
-	return (highest);
 }
 
 int	node_count(t_node *stack)

@@ -4,7 +4,8 @@
 
 NAME	:= push_swap
 CC		:= cc
-CFLAGS	?= -Wall -Wextra -Werror -g
+CFLAGS	?= -Wall -Wextra -Werror
+#LDFLAGS	?= -fsanitize=address -g
 
 SRC		:= \
 	src/main.c \
@@ -30,7 +31,7 @@ all:	$(NAME)
 $(NAME): $(OBJ)
 		$(MAKE) -C ./libft
 		$(MAKE) -C ./ft_printf
-		$(CC) $^ ./libft/libft.a ./ft_printf/libftprintf.a -o $(NAME)
+		$(CC) $(LDFLAGS) $^ ./libft/libft.a ./ft_printf/libftprintf.a -o $(NAME)
 
 %.o: %.c
 		$(CC) -c $(CFLAGS) -o $@ $^

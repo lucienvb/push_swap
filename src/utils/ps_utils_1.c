@@ -6,25 +6,11 @@
 /*   By: lvan-bus <lvan-bus@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/30 16:06:55 by lvan-bus      #+#    #+#                 */
-/*   Updated: 2023/01/10 16:23:07 by lvan-bus      ########   odam.nl         */
+/*   Updated: 2023/01/11 12:47:32 by lvan-bus      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
-
-int	fil_pos_check(char **str, char *num)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		if (str[i] == num)
-			return (0);
-		i++;
-	}
-	return (1);
-}
 
 int	next_low(t_node **stack, int new_low)
 {
@@ -51,13 +37,6 @@ int	next_low(t_node **stack, int new_low)
 	}
 	*stack = head;
 	return (next_low);
-}
-
-t_node	**node_position(t_node **stack, int num)
-{
-	while (*stack && (*stack)->content != num)
-		*stack = (*stack)->next;
-	return (stack);
 }
 
 void	ps_push_low_check_num(t_node **stack_a, int num, int i)

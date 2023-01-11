@@ -6,7 +6,7 @@
 /*   By: lvan-bus <lvan-bus@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/07 11:08:22 by lvan-bus      #+#    #+#                 */
-/*   Updated: 2023/01/10 16:27:40 by lvan-bus      ########   odam.nl         */
+/*   Updated: 2023/01/11 12:47:18 by lvan-bus      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,15 +50,12 @@ void		rev_rot(t_node **stack, char c);
 void		swap(t_node **head, char c);
 
 // PUSH_SWAP -- UTILS 1
-int			fil_pos_check(char **str, char *num);
 int			next_low(t_node **stack, int new_low);
-t_node		**node_position(t_node **stack, int num);
 void		ps_push_low_check_num(t_node **stack_a, int num, int i);
 void		ps_push_low_to_b(t_node **stack_a, t_node **stack_b, int num);
 
 // PUSH_SWAP -- UTILS 2
 int			already_sorted(t_node *stack);
-long long	find_lowest(t_node **stack, long long highest);
 int			node_count(t_node *stack);
 int			ps_position(t_node *stack, int content);
 int			reversed_sorted(t_node *stack);
