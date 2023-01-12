@@ -6,7 +6,7 @@
 /*   By: lvan-bus <lvan-bus@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/07 11:08:44 by lvan-bus      #+#    #+#                 */
-/*   Updated: 2023/01/11 16:39:33 by lvan-bus      ########   odam.nl         */
+/*   Updated: 2023/01/12 10:17:53 by lvan-bus      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ static int	error_2d_array_check(char **argv)
 
 char	**convert_and_check(int argc, char **argv, int two_args)
 {
-	if (argc == 1)
+	if (argc == 1 || (argc == 2 && two_args == 1))
 		return (NULL);
 	if (argc == 2 && error_str_check(argv[1]) == 0)
 	{
@@ -96,7 +96,10 @@ char	**convert_and_check(int argc, char **argv, int two_args)
 		argv = ft_split(argv[1], ' ', argv[0]);
 	}
 	if (error_2d_array_check(argv) == 0)
+	{
+		free_argv(argv, two_args);
 		return (write(1, "Error\n", 6), NULL);
+	}
 	if (!argv)
 	{
 		free_argv(argv, two_args);

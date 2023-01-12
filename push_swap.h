@@ -6,7 +6,7 @@
 /*   By: lvan-bus <lvan-bus@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/07 11:08:22 by lvan-bus      #+#    #+#                 */
-/*   Updated: 2023/01/11 16:39:58 by lvan-bus      ########   odam.nl         */
+/*   Updated: 2023/01/12 09:41:47 by lvan-bus      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ void	rev_rot(t_node **stack, char c);
 void	swap(t_node **head, char c);
 
 // PUSH_SWAP -- UTILS 1
+int		free_all(t_node *a, t_node *b, char **argv, int two_args);
 void	free_argv(char **argv, int two_args);
 int		next_low(t_node **stack, int new_low);
 void	ps_push_low_check_num(t_node **stack_a, int num, int i);

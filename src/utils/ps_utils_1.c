@@ -6,17 +6,24 @@
 /*   By: lvan-bus <lvan-bus@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/30 16:06:55 by lvan-bus      #+#    #+#                 */
-/*   Updated: 2023/01/11 16:40:45 by lvan-bus      ########   odam.nl         */
+/*   Updated: 2023/01/12 10:02:02 by lvan-bus      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
+int	free_all(t_node *a, t_node *b, char **argv, int two_args)
+{
+	free_argv(argv, two_args);
+	clear_list(a, b);
+	return (0);
+}
+
 void	free_argv(char **argv, int two_args)
 {
 	int	i;
 
-	if (two_args == 0)
+	if (two_args < 2)
 		return ;
 	i = 1;
 	while (argv[i])
