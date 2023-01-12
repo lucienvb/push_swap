@@ -6,7 +6,7 @@
 /*   By: lvan-bus <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/07 11:06:58 by lvan-bus      #+#    #+#                 */
-/*   Updated: 2023/01/12 10:20:20 by lvan-bus      ########   odam.nl         */
+/*   Updated: 2023/01/12 11:10:24 by lvan-bus      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ int	main(int argc, char **argv)
 
 	stack_a = NULL;
 	stack_b = NULL;
+	if (argc == 1)
+		return (0);
 	two_args = word_count(argv[1], ' ');
 	argv = convert_and_check(argc, argv, two_args);
 	stack_a = new_list(stack_a, argv);
