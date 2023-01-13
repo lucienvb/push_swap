@@ -6,7 +6,7 @@
 /*   By: lvan-bus <lvan-bus@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/07 11:08:44 by lvan-bus      #+#    #+#                 */
-/*   Updated: 2023/01/12 11:12:01 by lvan-bus      ########   odam.nl         */
+/*   Updated: 2023/01/13 15:24:56 by lvan-bus      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,8 +88,10 @@ static int	error_2d_array_check(char **argv)
 
 char	**convert_and_check(int argc, char **argv, int two_args)
 {
-	if (argc == 2 && two_args == 1)
+	if (argc == 2 && two_args == 1 && error_2d_array_check(argv) == 1)
 		return (NULL);
+	if (argc > 2 && word_count(argv[1], ' ') > 1)
+		return (write(1, "Error\n", 6), NULL);
 	if (argc == 2 && error_str_check(argv[1]) == 0)
 	{
 		argc = word_count(argv[1], ' ');
