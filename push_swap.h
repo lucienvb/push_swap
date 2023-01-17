@@ -18,6 +18,7 @@
 # include <limits.h>
 # include <unistd.h>
 # include <stdarg.h>
+# include <stddef.h>
 # include "./ft_printf/ft_printf.h"
 # include "./libft/libft.h"
 
@@ -29,6 +30,9 @@ typedef struct node
 	int				size;
 	struct node		*next;
 }					t_node;
+
+// ENUM
+enum e_stack_number {one = 1, two = 2, three = 3, four = 4, five = 5, six = 6};
 
 // PUSH_SWAP -- ALGORITHM
 void	ps_radix_sort(t_node **stack_a, t_node **stack_b);
@@ -58,8 +62,7 @@ void	ps_push_low_to_b(t_node **stack_a, t_node **stack_b, int num);
 
 // PUSH_SWAP -- UTILS 2
 int		already_sorted(t_node *stack);
-int		node_count(t_node *stack);
-int		ps_position(t_node *stack, int content);
+size_t	node_count(t_node *stack);
 int		reversed_sorted(t_node *stack);
 
 // PUSH_SWAP -- NUM TO INDEX

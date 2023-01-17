@@ -14,9 +14,9 @@
 
 void	ps_radix_sort(t_node **stack_a, t_node **stack_b)
 {
-	int	count;
-	int	i;
-	int	j;
+	size_t	count;
+	size_t	i;
+	size_t	j;
 
 	count = list_size(*stack_a);
 	j = 0;

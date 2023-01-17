@@ -7,3 +7,5 @@ tasks.json
 *.o
 .DS_Store
 ARG=2 1 0
+.idea/
+cmake-build-debug/

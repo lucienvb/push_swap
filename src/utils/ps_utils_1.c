@@ -82,7 +82,7 @@ void	ps_push_low_check_num(t_node **stack_a, int num, int i)
 
 void	ps_push_low_to_b(t_node **stack_a, t_node **stack_b, int num)
 {
-	int		i;
+	size_t	i;
 	t_node	*head;
 
 	i = 0;

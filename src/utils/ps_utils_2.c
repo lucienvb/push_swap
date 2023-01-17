@@ -29,9 +29,9 @@ int	already_sorted(t_node *stack)
 	return (1);
 }
 
-int	node_count(t_node *stack)
+size_t	node_count(t_node *stack)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (stack)
@@ -40,21 +40,6 @@ int	node_count(t_node *stack)
 		stack = stack->next;
 	}
 	return (i);
-}
-
-int	ps_position(t_node *stack, int content)
-{
-	int	position;
-	int	icontent;
-
-	icontent = (int)content;
-	position = 0;
-	while (stack->content != icontent)
-	{
-		position++;
-		stack = stack->next;
-	}
-	return (position);
 }
 
 int	reversed_sorted(t_node *stack)

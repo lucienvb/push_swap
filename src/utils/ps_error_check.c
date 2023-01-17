@@ -6,16 +6,16 @@
 /*   By: lvan-bus <lvan-bus@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/07 11:08:44 by lvan-bus      #+#    #+#                 */
-/*   Updated: 2023/01/13 15:24:56 by lvan-bus      ########   odam.nl         */
+/*   Updated: 2023/01/17 13:18:14 by lvan-bus      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
-static int	error_double_check(char **argv)
+static size_t	error_double_check(char **argv)
 {
-	int	i;
-	int	j;
+	size_t	i;
+	size_t	j;
 
 	i = 1;
 	while (argv[i])
@@ -32,10 +32,10 @@ static int	error_double_check(char **argv)
 	return (1);
 }
 
-static int	error_limit_check(char **argv)
+static size_t	error_limit_check(char **argv)
 {
 	long long	num;
-	int			i;
+	size_t		i;
 
 	i = 0;
 	while (argv[i])
@@ -48,9 +48,9 @@ static int	error_limit_check(char **argv)
 	return (error_double_check(argv));
 }
 
-static int	error_str_check(char *str)
+static size_t	error_str_check(char *str)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (str[i])
@@ -64,10 +64,10 @@ static int	error_str_check(char *str)
 	return (1);
 }
 
-static int	error_2d_array_check(char **argv)
+static size_t	error_2d_array_check(char **argv)
 {
-	int			i;
-	int			j;
+	size_t	i;
+	size_t	j;
 
 	i = 1;
 	while (argv[i])
@@ -88,7 +88,8 @@ static int	error_2d_array_check(char **argv)
 
 char	**convert_and_check(int argc, char **argv, int two_args)
 {
-	if (argc == 2 && two_args == 1 && error_2d_array_check(argv) == 1)
+	if ((argc == 2 && two_args == 1 && error_2d_array_check(argv) == 1)
+		|| (argc == 2 && word_count(argv[1], ' ') == 0))
 		return (NULL);
 	if (argc > 2 && word_count(argv[1], ' ') > 1)
 		return (write(1, "Error\n", 6), NULL);

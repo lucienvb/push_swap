@@ -15,17 +15,17 @@
 static void	ps_sort(t_node **stack_a, t_node **stack_b, int argc)
 {
 	num_to_index(stack_a, argc);
-	if (!stack_a || already_sorted(*stack_a) == 1)
+	if (!stack_a || already_sorted(*stack_a) == one)
 		return ;
-	if ((*stack_a)->size == 2)
+	if ((*stack_a)->size == two)
 		swap(stack_a, 'a');
-	else if ((*stack_a)->size == 3)
+	else if ((*stack_a)->size == three)
 		ps_sort_3(stack_a);
-	else if ((*stack_a)->size == 4)
+	else if ((*stack_a)->size == four)
 		ps_sort_4(stack_a, stack_b);
-	else if ((*stack_a)->size == 5)
+	else if ((*stack_a)->size == five)
 		ps_sort_5(stack_a, stack_b);
-	else if ((*stack_a)->size == 6)
+	else if ((*stack_a)->size == six)
 		ps_sort_6(stack_a, stack_b);
 	else
 		ps_radix_sort(stack_a, stack_b);
@@ -35,8 +35,8 @@ int	main(int argc, char **argv)
 {
 	t_node	*stack_a;
 	t_node	*stack_b;
-	int		i;
-	int		two_args;
+	size_t	i;
+	size_t	two_args;
 
 	stack_a = NULL;
 	stack_b = NULL;
