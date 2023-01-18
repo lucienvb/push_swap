@@ -48,4 +48,8 @@ fclean: clean
 
 re: fclean all
 
+test:
+		$(CC) $(CFLAGS) UnityExample.c src/utils/ps_utils_2.o unity/libunity.a -o unittest
+		@ ./unittest
+
 .PHONY: all clean fclean re
