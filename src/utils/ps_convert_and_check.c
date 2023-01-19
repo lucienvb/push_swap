@@ -20,10 +20,7 @@ char	**convert_and_check(int argc, char **argv, int two_args)
 	if (argc > 2 && word_count(argv[1], ' ') > 1)
 		return (write(1, "Error\n", 6), NULL);
 	if (argc == 2 && error_num_check(argv[1]) == 0)
-	{
-		//argc = word_count(argv[1], ' ');
 		argv = ft_split(argv[1], ' ', argv[0]);
-	}
 	if (error_num_check_for_2d_array(argv) == 0)
 	{
 		free_argv(argv, two_args);

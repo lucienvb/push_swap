@@ -44,8 +44,8 @@ fclean: clean
 
 re: fclean all
 
-#test:
-#		$(CC) $(CFLAGS) UnityExample.c src/utils/ps_utils_2.o unity/libunity.a -o unittest
-#		@ ./unittest
+test:
+		$(CC) $(CFLAGS) UnityExample.c libft/lists/list_reversed_sorted.o unity/libunity.a -o unittest
+		@ ./unittest
 
 .PHONY: all clean fclean re

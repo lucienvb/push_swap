@@ -19,7 +19,7 @@ CC			:= cc
 CFLAGS 		?= -Wall -Wextra -Werror
 #LDFLAGS	?= -fsanitize=address -g
 
-SRC 		:= \
+SRC_LIBFT	:= \
 	ascii/ft_isalnum.c \
 	ascii/ft_isalpha.c \
 	ascii/ft_isascii.c \
@@ -67,7 +67,15 @@ SRC 		:= \
 	str/ft_strtrim.c \
 	str/ft_substr.c
 
-OBJ			:= $(SRC:.c=.o)
+SRC_PF	:= \
+	ft_printf/ft_printf.c \
+	ft_printf/ft_itoa.c \
+	ft_printf/ft_puts.c \
+	ft_printf/ft_str.c \
+	ft_printf/ft_memcpy.c \
+	ft_printf/ft_hex.c
+
+OBJ			:= $(SRC_LIBFT:.c=.o) $(SRC_PF:.c=.o)
 
 #=======================================#
 #========		RECIPES:		========#
@@ -77,19 +85,15 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 		ar -cr $(NAME) $(OBJ)
-		$(MAKE) -C ./ft_printf
-		$(CC) $(LDFLAGS) $^ ./ft_printf/libftprintf.a -o $(NAME)
 
 %.o: %.c
 		$(CC) -c $(CFLAGS) -o $@ $^
 
 clean:
 		rm -f $(OBJ)
-		$(MAKE) -C ./ft_printf clean
 
 fclean: clean
 		rm -f $(NAME)
-		$(MAKE) -C ./ft_printf fclean
 
 re: fclean all
 

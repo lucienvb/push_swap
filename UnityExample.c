@@ -54,8 +54,8 @@ void test_already_sorted() {
 	stack_3->content = 2;
 	stack_3->next = stack_4;
 
-	TEST_ASSERT_EQUAL(0, reversed_sorted(stack_1));
-	TEST_ASSERT_EQUAL(1, reversed_sorted(stack_3));
+	TEST_ASSERT_EQUAL(0, list_reversed_sorted(stack_1));
+	TEST_ASSERT_EQUAL(1, list_reversed_sorted(stack_3));
 
 }
 
