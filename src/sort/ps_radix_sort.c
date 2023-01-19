@@ -20,7 +20,7 @@ void	ps_radix_sort(t_node **stack_a, t_node **stack_b)
 
 	count = list_size(*stack_a);
 	j = 0;
-	while (already_sorted(*stack_a) == 0)
+	while (list_sorted(*stack_a) == 0)
 	{
 		i = 0;
 		while (i < count)
@@ -33,7 +33,7 @@ void	ps_radix_sort(t_node **stack_a, t_node **stack_b)
 		}
 		while (*stack_b)
 			push(stack_b, stack_a, 'a');
-		num_to_index(stack_a, count + 1);
+		content_to_index(stack_a, count + 1);
 		j++;
 	}
 }

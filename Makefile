@@ -14,42 +14,38 @@ SRC		:= \
 	src/operations/ps_swap.c \
 	src/sort/ps_radix_sort.c \
 	src/sort/ps_sort.c \
-	src/utils/ps_error_check.c \
-	src/utils/ps_lists.c \
-	src/utils/ps_num_to_index.c \
-	src/utils/ps_utils_1.c \
-	src/utils/ps_utils_2.c
+	src/utils/ps_content_to_index.c \
+	src/utils/ps_convert_and_check.c \
+	src/utils/ps_free.c \
+	src/utils/ps_push_low_to_b.c
 
 OBJ		:= $(SRC:.c=.o)
 
 #=======================================#
-#========		RECIPIES		========#
+#========		RECIPES:		========#
 #=======================================#
 
 all:	$(NAME)
 
 $(NAME): $(OBJ)
 		$(MAKE) -C ./libft
-		$(MAKE) -C ./ft_printf
-		$(CC) $(LDFLAGS) $^ ./libft/libft.a ./ft_printf/libftprintf.a -o $(NAME)
+		$(CC) $(LDFLAGS) $^ ./libft/libft.a -o $(NAME)
 
 %.o: %.c
 		$(CC) -c $(CFLAGS) -o $@ $^
 
 clean:
 		rm -f $(OBJ)
-		$(MAKE) -C ./libft clean
-		$(MAKE) -C ./ft_printf clean
+		$(MAKE) -C libft clean
 
 fclean: clean
 		rm -f $(NAME)
-		$(MAKE) -C ./libft fclean
-		$(MAKE) -C ./ft_printf fclean
+		$(MAKE) -C libft fclean
 
 re: fclean all
 
-test:
-		$(CC) $(CFLAGS) UnityExample.c src/utils/ps_utils_2.o unity/libunity.a -o unittest
-		@ ./unittest
+#test:
+#		$(CC) $(CFLAGS) UnityExample.c src/utils/ps_utils_2.o unity/libunity.a -o unittest
+#		@ ./unittest
 
 .PHONY: all clean fclean re

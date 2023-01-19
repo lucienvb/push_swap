@@ -14,8 +14,8 @@
 
 static void	ps_sort(t_node **stack_a, t_node **stack_b, int argc)
 {
-	num_to_index(stack_a, argc);
-	if (!stack_a || already_sorted(*stack_a) == one)
+	content_to_index(stack_a, argc);
+	if (!stack_a || list_sorted(*stack_a) == one)
 		return ;
 	if ((*stack_a)->size == two)
 		swap(stack_a, 'a');

@@ -33,7 +33,7 @@ void test_function_should_doAlsoDoBlah(void) {
 //	struct node		*next;
 //}					t_node;
 
-void test_already_sorted_true() {
+void test_already_sorted() {
 	t_node *stack_1;
 	t_node *stack_2;
 
@@ -64,6 +64,6 @@ int main(void) {
 	UNITY_BEGIN();
 //	RUN_TEST(test_function_should_doBlahAndBlah);
 //	RUN_TEST(test_function_should_doAlsoDoBlah);
-	RUN_TEST(test_already_sorted_true);
+	RUN_TEST(test_already_sorted);
 	return UNITY_END();
 }
