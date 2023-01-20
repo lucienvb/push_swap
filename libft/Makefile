@@ -26,6 +26,7 @@ SRC_LIBFT	:= \
 	ascii/ft_isdigit.c \
 	ascii/ft_isprint.c \
 	convert/ft_atoi.c \
+	convert/ft_atoi_with_overflow.c \
 	convert/ft_itoa.c \
 	convert/ft_tolower.c \
 	convert/ft_toupper.c \

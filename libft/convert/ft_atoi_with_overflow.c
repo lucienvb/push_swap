@@ -1,34 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   error_limit_check.c                                :+:    :+:            */
+/*   ft_atoi_with_overflow.c                            :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lvan-bus <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/01/19 11:58:53 by lvan-bus      #+#    #+#                 */
-/*   Updated: 2023/01/20 15:30:44 by lvan-bus      ########   odam.nl         */
+/*   Created: 2023/01/20 15:53:19 by lvan-bus      #+#    #+#                 */
+/*   Updated: 2023/01/20 15:53:21 by lvan-bus      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
-#include "stdio.h"
 
-size_t	error_limit_check(char **argv)
+int	ft_atoi_with_overflow(const char *str, int *result)
 {
-	int		num;
-	size_t	i;
+	int	i;
+	int	sign;
 
+	sign = 1;
 	i = 0;
-	while (argv[i])
+	*result = 0;
+	if (!str)
+		return (1);
+	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
+		i++;
+	if (str[i] == '-' || str[i] == '+')
 	{
-		if (ft_atoi_with_overflow(argv[i], &num) == 0)
-		{
-			ft_printf("Error");
-			exit(0);
-		}
-		if (num < INT_MIN || num > INT_MAX)
+		if (str[i] == '-')
+			sign *= -1;
+		i++;
+	}
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		*result = *result * 10 + str[i] - '0';
+		if (*result < 0 && *result != INT_MIN)
 			return (0);
 		i++;
 	}
-	return (error_double_check(argv));
+	*result *= sign;
+	return (1);
 }
