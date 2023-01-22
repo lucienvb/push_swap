@@ -44,8 +44,14 @@ fclean: clean
 
 re: fclean all
 
+LIST_TEST := \
+			libft/lists/list_reversed_sorted.o \
+			libft/convert/ft_atoi_with_overflow.o \
+			libft/error_handling/error_double_check.o \
+			libft/convert/ft_atoi.o
+
 test:
-		$(CC) $(CFLAGS) UnityExample.c libft/lists/list_reversed_sorted.o libft/convert/ft_atoi_with_overflow.o libft/error_handling/error_double_check.o libft/convert/ft_atoi.o unity/libunity.a -o unittest
+		$(CC) $(CFLAGS) UnityExample.c $(LIST_TEST) unity/libunity.a -o unittest
 		@ ./unittest
 
 .PHONY: all clean fclean re
