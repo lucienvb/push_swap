@@ -24,7 +24,7 @@ size_t	error_limit_check(char **argv)
 	{
 		if (ft_atoi_with_overflow(argv[i], &inum) == 0)
 		{
-			ft_printf("Error\n");
+			write(STDERR_FILENO, "Error\n", 6);
 			exit(0);
 		}
 		lnum = ft_atol(argv[i]);
