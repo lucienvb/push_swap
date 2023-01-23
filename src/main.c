@@ -6,7 +6,7 @@
 /*   By: lvan-bus <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/07 11:06:58 by lvan-bus      #+#    #+#                 */
-/*   Updated: 2023/01/13 15:30:13 by lvan-bus      ########   odam.nl         */
+/*   Updated: 2023/01/23 09:42:32 by lvan-bus      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	main(int argc, char **argv)
 	i = 2;
 	while (argv[i])
 	{
-		if (add_back(&stack_a, ft_atoi(argv[i])) == 0)
+		if (add_back(&stack_a, ft_atol(argv[i])) == 0)
 			return (free_all(stack_a, stack_b, argv, two_args));
 		i++;
 	}

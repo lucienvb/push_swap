@@ -23,7 +23,7 @@ size_t	error_double_check(char **argv)
 		j = i + 1;
 		while (argv[j])
 		{
-			if (ft_atoi(argv[i]) == ft_atoi(argv[j]))
+			if (ft_atol(argv[i]) == ft_atol(argv[j]))
 				return (0);
 			j++;
 		}

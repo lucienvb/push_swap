@@ -15,18 +15,20 @@
 
 size_t	error_limit_check(char **argv)
 {
-	int		num;
-	size_t	i;
+	int			inum;
+	long long	lnum;
+	size_t		i;
 
 	i = 0;
 	while (argv[i])
 	{
-		if (ft_atoi_with_overflow(argv[i], &num) == 0)
+		if (ft_atoi_with_overflow(argv[i], &inum) == 0)
 		{
-			ft_printf("Error");
+			ft_printf("Error\n");
 			exit(0);
 		}
-		if (num < INT_MIN || num > INT_MAX)
+		lnum = ft_atol(argv[i]);
+		if (lnum < INT_MIN || lnum > INT_MAX)
 			return (0);
 		i++;
 	}

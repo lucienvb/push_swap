@@ -21,7 +21,7 @@ t_node	*new_list(t_node *stack, char **argv)
 	new = (t_node *) malloc(sizeof(t_node));
 	if (!new)
 		return (NULL);
-	new->content = ft_atoi(argv[1]);
+	new->content = ft_atol(argv[1]);
 	new->size = 1;
 	new->next = NULL;
 	new->next = stack;
