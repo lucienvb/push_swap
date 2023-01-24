@@ -24,7 +24,7 @@ char	**convert_and_check(int argc, char **argv, int two_args)
 	if (error_num_check_for_2d_array(argv) == 0)
 	{
 		free_argv(argv, two_args);
-		return (write(STDERR_FILENO, "Error\n", 6);, NULL);
+		return (write(STDERR_FILENO, "Error\n", 6), NULL);
 	}
 	if (!argv)
 	{
