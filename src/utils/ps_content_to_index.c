@@ -12,83 +12,24 @@
 
 #include "../../push_swap.h"
 
-static int	set_low(t_node **stack, int low, int i)
+void	content_to_index(t_node **stack)
 {
 	t_node	*head;
+	t_node	*tmp;
 
-	head = *stack;
+	tmp = *stack;
+	head = tmp;
 	while (*stack)
-	{
-		if ((*stack)->content == low)
-			(*stack)->index = i++;
-		*stack = (*stack)->next;
-	}
-	*stack = head;
-	return (i);
-}
-
-static int	set_new_low(t_node **stack, int new_low, int i)
-{
-	t_node	*head;
-
-	head = *stack;
-	while (*stack)
-	{
-		if ((*stack)->content == new_low)
-			(*stack)->index = i++;
-		*stack = (*stack)->next;
-	}
-	*stack = head;
-	return (i);
-}
-
-static void	set_remaining(t_node **stack, int low, int i, int argc)
-{
-	int		new_low;
-	t_node	*head;
-
-	head = *stack;
-	if ((*stack)->content == low)
-		new_low = (*stack)->next->content;
-	else
-		new_low = (*stack)->content;
-	if (argc == 2)
-		argc = node_count(*stack) + 1;
-	while (argc > 2)
-	{
-		while (*stack && (*stack)->next)
-		{
-			if ((*stack)->next->content > low
-				&& (*stack)->next->content < new_low)
-				new_low = (*stack)->next->content;
-			*stack = (*stack)->next;
-		}
-		*stack = head;
-		i = set_new_low(stack, new_low, i);
-		low = new_low;
-		new_low = next_low(stack, new_low);
-		argc--;
-	}
-}
-
-void	content_to_index(t_node **stack, int argc)
-{
-	int		low;
-	int		i;
-	t_node	*head;
-
-	if ((*stack)->size == 1)
 	{
 		(*stack)->index = 0;
-		return ;
-	}
-	head = *stack;
-	i = 0;
-	low = (*stack)->content;
-	low = find_list_lowest(stack, low);
-	i = set_low(stack, low, i);
-	if (list_sorted(*stack) == 1)
+		while (tmp)
+		{
+			if ((*stack)->content > tmp->content)
+				(*stack)->index++;
+			tmp = tmp->next;
+		}
+		tmp = head;
 		*stack = (*stack)->next;
-	set_remaining(stack, low, i, argc);
+	}
 	*stack = head;
 }

@@ -69,7 +69,7 @@ void	ps_rev_sort_3(t_node **stack)
 void	ps_sort_4(t_node **stack_a, t_node **stack_b)
 {
 	ps_push_low_to_b(stack_a, stack_b, 3);
-	content_to_index(stack_a, 4);
+	content_to_index(stack_a);
 	ps_sort_3(stack_a);
 	push(stack_b, stack_a, 'a');
 }
@@ -77,11 +77,11 @@ void	ps_sort_4(t_node **stack_a, t_node **stack_b)
 void	ps_sort_5(t_node **stack_a, t_node **stack_b)
 {
 	ps_push_low_to_b(stack_a, stack_b, 4);
-	content_to_index(stack_a, 4);
+	content_to_index(stack_a);
 	ps_push_low_to_b(stack_a, stack_b, 3);
 	if (list_reversed_sorted(*stack_b) == 0)
 		swap(stack_b, 'b');
-	content_to_index(stack_a, 3);
+	content_to_index(stack_a);
 	ps_sort_3(stack_a);
 	push(stack_b, stack_a, 'a');
 	push(stack_b, stack_a, 'a');
@@ -95,12 +95,12 @@ void	ps_sort_6(t_node **stack_a, t_node **stack_b)
 	while (i > 2)
 	{
 		ps_push_low_to_b(stack_a, stack_b, i);
-		content_to_index(stack_a, i);
+		content_to_index(stack_a);
 		i--;
 	}
-	content_to_index(stack_b, 3);
+	content_to_index(stack_b);
 	ps_rev_sort_3(stack_b);
-	content_to_index(stack_a, 3);
+	content_to_index(stack_a);
 	ps_sort_3(stack_a);
 	while (i != -1)
 	{

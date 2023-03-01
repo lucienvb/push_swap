@@ -33,7 +33,7 @@ void	ps_radix_sort(t_node **stack_a, t_node **stack_b)
 		}
 		while (*stack_b)
 			push(stack_b, stack_a, 'a');
-		content_to_index(stack_a, count + 1);
+		content_to_index(stack_a);
 		j++;
 	}
 }

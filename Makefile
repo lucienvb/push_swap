@@ -5,7 +5,7 @@
 NAME	:= push_swap
 CC		:= cc
 CFLAGS	?= -Wall -Wextra -Werror
-#LDFLAGS	?= -fsanitize=address -g
+LDFLAGS	?= -fsanitize=address -g
 
 SRC		:= \
 	src/main.c \

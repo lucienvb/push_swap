@@ -47,7 +47,7 @@ void	ps_push_low_check_num(t_node **stack_a, int num, int i);
 void	ps_push_low_to_b(t_node **stack_a, t_node **stack_b, int num);
 
 // PUSH_SWAP -- NUM TO INDEX
-void	content_to_index(t_node **stack, int argc);
+void	content_to_index(t_node **stack);
 
 // PUSH_SWAP -- SORT: 3 TILL 6
 void	ps_sort_3(t_node **stack);

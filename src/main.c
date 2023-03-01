@@ -12,9 +12,9 @@
 
 #include "../push_swap.h"
 
-static void	ps_sort(t_node **stack_a, t_node **stack_b, int argc)
+static void	ps_sort(t_node **stack_a, t_node **stack_b)
 {
-	content_to_index(stack_a, argc);
+	content_to_index(stack_a);
 	if (!stack_a || list_sorted(*stack_a) == one)
 		return ;
 	if ((*stack_a)->size == two)
@@ -54,6 +54,6 @@ int	main(int argc, char **argv)
 			return (free_all(stack_a, stack_b, argv, two_args));
 		i++;
 	}
-	ps_sort(&stack_a, &stack_b, argc);
+	ps_sort(&stack_a, &stack_b);
 	return (free_all(stack_a, stack_b, argv, two_args));
 }

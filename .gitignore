@@ -9,3 +9,5 @@ tasks.json
 ARG=2 1 0
 .idea/
 cmake-build-debug/
+*.dSYM/
+.gitignore
